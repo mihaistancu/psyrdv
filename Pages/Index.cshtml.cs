@@ -17,12 +17,6 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        Url = "Headers ";
-        foreach (var header in Request.Headers)
-            Url += header.Key + "=" + header.Value + Environment.NewLine;
-
-        UserId = User.Identity.IsAuthenticated 
-            ? User.FindFirst(ClaimTypes.NameIdentifier).Value
-            : "Guest";
+        UserId = Request.Headers["MS-CLIENT-PRINCIPAL-NAME"];
     }
 }
