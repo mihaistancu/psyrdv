@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MaximeRouiller.Azure.AppService.EasyAuth" Version="0.1.0-beta82" />
+  </ItemGroup>
+
 </Project>

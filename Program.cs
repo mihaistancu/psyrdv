@@ -1,7 +1,10 @@
+using MaximeRouiller.Azure.AppService.EasyAuth;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddAuthentication().AddEasyAuthAuthentication((o) => { });
 
 var app = builder.Build();
 
