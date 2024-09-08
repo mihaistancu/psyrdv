@@ -14,6 +14,10 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-
+        var userName = User.Identity.IsAuthenticated 
+            ? User.FindFirst(ClaimTypes.Name)?.Value 
+            : "Guest";
+        
+        ViewBag.UserName = userName;
     }
 }
