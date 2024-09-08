@@ -17,6 +17,6 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        UserId = Request.Headers["MS-CLIENT-PRINCIPAL-NAME"];
+        UserId = Request.Headers["X-MS-CLIENT-PRINCIPAL-NAME"];
     }
 }
