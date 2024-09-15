@@ -21,7 +21,7 @@ public class IndexModel : PageModel
         UserId = Request.Headers["X-MS-CLIENT-PRINCIPAL-NAME"];
         
         try {
-            using var conn = new SqlConnection("Server=tcp:psyrdv.database.windows.net,1433;Initial Catalog=bookings;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";");
+            using var conn = new SqlConnection("Server=tcp:psyrdv.database.windows.net,1433;Initial Catalog=psyrdv;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";");
             conn.Open();
 
             var command = new SqlCommand(
