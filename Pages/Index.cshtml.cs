@@ -21,23 +21,14 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        UserId = Request.Headers["X-MS-CLIENT-PRINCIPAL-NAME"];
-        if (UserId == null) {
-            UserId = "LocalDev";
-        }
+        UserId = CurrentUser.From(Request);
         
         try {
            _accessRepo.Save(UserId, DateTime.Now);
+           Accesses = _accessRepo.GetAll();
         }
         catch (Exception ex) {
             UserId += ex.Message;
-        }
-        
-        try {
-            Accesses = _accessRepo.GetAll();
-        }
-        catch (Exception ex) {
-            UserId += ex.Message;            
         }
     }
 }
