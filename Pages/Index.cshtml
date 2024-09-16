@@ -6,4 +6,11 @@
 
 <div class="text-center">
     <h1 class="display-4">Bonjour, @Model.UserId</h1>
+
+    <ul>
+        @foreach (Access access in Model.Accesses)
+        {
+            <li>@access.UserId - @access.Timestamp</li>
+        }
+    </ul>
 </div>
