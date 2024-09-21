@@ -1,5 +1,7 @@
 using Microsoft.Data.SqlClient;
 
+namespace psyrdv.Data;
+
 public class AccessRepo : IAccessRepo {
     private string connectionString;
 

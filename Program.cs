@@ -1,8 +1,11 @@
+using psyrdv.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<IAccessRepo, AccessRepo>();
+builder.Services.AddTransient<IBookingsRepo, BookingsRepo>();
 
 var app = builder.Build();
 

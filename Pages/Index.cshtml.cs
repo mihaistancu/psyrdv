@@ -1,6 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Security.Claims;
+using psyrdv.Data;
 
 namespace psyrdv.Pages;
 
