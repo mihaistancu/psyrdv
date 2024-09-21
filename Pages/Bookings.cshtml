@@ -1,0 +1,18 @@
+@page
+@using psyrdv.Data
+@model BookingsModel
+@{
+    ViewData["Title"] = "Rendez-vous";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Rendez-vous pour @Model.UserId</h1>
+
+    <ul>
+        @foreach (Booking booking in Model.Bookings)
+        {
+            <li>@booking.Name - @booking.Date @booking.Start - @booking.End</li>
+        }
+    </ul>
+
+</div>

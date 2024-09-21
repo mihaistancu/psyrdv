@@ -10,8 +10,6 @@ public class IndexModel : PageModel
     public string UserId { get; set; }
     public List<Access> Accesses { get; set; } = new List<Access>();
 
-    private AccessRepo accessRepo;
-
     public IndexModel(ILogger<IndexModel> logger, IAccessRepo accessRepo)
     {
         _logger = logger;
