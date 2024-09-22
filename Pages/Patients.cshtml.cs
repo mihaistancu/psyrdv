@@ -19,7 +19,7 @@ public class PatientsModel : PageModel
     public void OnGet()
     {
         try {
-           Patients = _patientsRepo.getAll();
+           Patients = _patientsRepo.GetAll();
         }
         catch (Exception ex) {
             _logger.LogError(ex.Message);

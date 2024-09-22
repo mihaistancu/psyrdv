@@ -19,7 +19,7 @@ public class BookingsModel : PageModel
     public void OnGet()
     {        
         try {
-           Bookings = _bookingsRepo.getAll();
+           Bookings = _bookingsRepo.GetAll();
         }
         catch (Exception ex) {
             _logger.LogError(ex.Message);

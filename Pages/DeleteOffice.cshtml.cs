@@ -13,21 +13,12 @@ public class DeleteOfficeModel : PageModel
         this._logger = logger;
     }
 
-    [BindProperty]
-    public Guid Id { get; set; }
-
     public void OnGet(Guid id) {
-        Id = id;
     }
 
-    public IActionResult OnPost()
-    {
-        try {
-            _officesRepo.Delete(Id);
-        } 
-        catch (Exception e) {
-            _logger.LogError(e.Message);
-        }
+    public IActionResult OnPost(Guid id)
+    {    
+        _officesRepo.Delete(id);
         return RedirectToPage("./Offices");
     }
 }

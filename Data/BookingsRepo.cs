@@ -26,7 +26,7 @@ public class BookingsRepo : IBookingsRepo
         using SqlDataReader reader = command.ExecuteReader();
     }
 
-    public List<Booking> getAll()
+    public List<Booking> GetAll()
     {
         var bookings = new List<Booking>();
         using var conn = new SqlConnection(connectionString);

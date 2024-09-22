@@ -26,7 +26,7 @@ public class PatientsRepo : IPatientsRepo
         using SqlDataReader reader = command.ExecuteReader();
     }
 
-    public List<Patient> getAll()
+    public List<Patient> GetAll()
     {
         var patients = new List<Patient>();
         using var conn = new SqlConnection(connectionString);
@@ -72,5 +72,33 @@ public class PatientsRepo : IPatientsRepo
         command.Parameters.AddWithValue("@email", patient.Email);
 
         using SqlDataReader reader = command.ExecuteReader();
+    }
+
+    public Patient GetById(Guid id)
+    {
+        using var conn = new SqlConnection(connectionString);
+        conn.Open();
+
+        var command = new SqlCommand(
+            "SELECT [id], [firstName], [lastName], [NISS], [phone], [email] FROM patients WHERE id = @id",
+            conn);
+
+        command.Parameters.AddWithValue("@id", id);
+
+        using SqlDataReader reader = command.ExecuteReader();
+        if (reader.Read())
+        {
+            return new Patient
+            {
+                Id = reader.GetGuid(0),
+                FirstName = reader.GetString(1),
+                LastName = reader.GetString(2),
+                Niss = reader.GetString(3),
+                Phone = reader.GetString(4),
+                Email = reader.GetString(5)
+            };
+        }
+
+        return null;
     }
 }
