@@ -1,0 +1,34 @@
+@page
+@model OfficesModel
+@{
+    ViewData["Title"] = "Cabinets";
+}
+
+<h1>Cabinets</h1>
+
+<p>
+    <a asp-page="AddOffice">Nouveau Cabinet</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Addresse</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var office in Model.Offices)
+        {
+            <tr>
+                <td>@office.Name</td>
+                <td>@office.Address</td>
+                <td>
+                    <a asp-page="./EditOffice" asp-route-id="@office.Id">Edit</a> |
+                    <a asp-page="./DeleteOffice" asp-route-id="@office.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
