@@ -22,7 +22,9 @@ public class CreateBookingModel : PageModel
     {
     }
 
-    public void OnPost() {
+    public IActionResult OnPost() {
         _bookingsRepo.Save(Booking);
+
+        return RedirectToPage("./Bookings");
     }
 }

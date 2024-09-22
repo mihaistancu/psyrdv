@@ -22,7 +22,9 @@ public class AddPatientModel : PageModel
     {
     }
 
-    public void OnPost() {
+    public IActionResult OnPost() {
         _patientsRepo.Save(Patient);
+
+        return RedirectToPage("./Patients");
     }
 }

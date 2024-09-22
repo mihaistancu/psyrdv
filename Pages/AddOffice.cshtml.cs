@@ -22,11 +22,6 @@ public class AddOfficeModel : PageModel
 
     public IActionResult OnPost()
     {
-        if (!ModelState.IsValid)
-        {
-            return Page();
-        }
-
         _officesRepo.Save(Office);
 
         return RedirectToPage("./Offices");
