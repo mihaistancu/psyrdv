@@ -1,0 +1,35 @@
+@page
+@using psyrdv.Data
+@model CreateBookingModel
+@{
+    ViewData["Title"] = "Nouveau Rendez-Vous";
+}
+
+<div class="text-center">
+    
+    <form method="post">
+        <p>
+            <label asp-for="Booking.Name">Nom:</label>
+            <input asp-for="Booking.Name" />
+        </p>
+        <p>
+            <label asp-for="Booking.Date">Date:</label>
+            <input asp-for="Booking.Date" />
+        </p>
+        <p>
+            <label asp-for="Booking.Start">De:</label>
+            <input asp-for="Booking.Start" />
+        </p>
+        <p>
+            <label asp-for="Booking.End">A:</label>
+            <input asp-for="Booking.End" />
+        </p>
+        <p>
+            <label asp-for="Booking.Details">Detailles:</label>
+            <input asp-for="Booking.Details" />
+        </p>
+        
+        <p><button type="submit">Sauvegarde</button></p>
+    </form>
+
+</div>

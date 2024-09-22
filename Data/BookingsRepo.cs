@@ -33,7 +33,7 @@ public class BookingsRepo : IBookingsRepo
         conn.Open();
 
         var command = new SqlCommand(
-            "SELECT id, name, date, start, end, details FROM bookings",
+            "SELECT [id], [name], [date], [start], [end], [details] FROM booking",
             conn);
 
         using (SqlDataReader reader = command.ExecuteReader()) {
@@ -60,7 +60,7 @@ public class BookingsRepo : IBookingsRepo
         conn.Open();
 
         var command = new SqlCommand(
-            "INSERT INTO booking (id, name, date, start, end, details) VALUES (@id, @name, @date, @start, @end, @details)",
+            "INSERT INTO booking ([id], [name], [date], [start], [end], [details]) VALUES (@id, @name, @date, @start, @end, @details)",
             conn);
 
         command.Parameters.Clear();

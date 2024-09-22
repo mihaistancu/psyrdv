@@ -2,11 +2,11 @@
 @using psyrdv.Data
 @model BookingsModel
 @{
-    ViewData["Title"] = "Rendez-vous";
+    ViewData["Title"] = "RDV";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Rendez-vous pour @Model.UserId</h1>
+    <h1 class="display-4">RDV</h1>
 
     <ul>
         @foreach (Booking booking in Model.Bookings)
@@ -14,5 +14,7 @@
             <li>@booking.Name - @booking.Date @booking.Start - @booking.End</li>
         }
     </ul>
+
+    <a class="nav-link text-dark" asp-area="" asp-page="/CreateBooking">Nouveau RDV</a>
 
 </div>
