@@ -10,7 +10,7 @@
     <a asp-page="AddOffice">Nouveau Cabinet</a>
 </p>
 
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Nom</th>
@@ -25,8 +25,8 @@
                 <td>@office.Name</td>
                 <td>@office.Address</td>
                 <td>
-                    <a asp-page="./EditOffice" asp-route-id="@office.Id">Edit</a> |
-                    <a asp-page="./DeleteOffice" asp-route-id="@office.Id">Delete</a>
+                    <a class="btn btn-primary btn-sm" asp-page="./EditOffice" asp-route-id="@office.Id">Modifier</a>
+                    <a class="btn btn-danger btn-sm" asp-page="./DeleteOffice" asp-route-id="@office.Id">Suprimer</a>
                 </td>
             </tr>
         }

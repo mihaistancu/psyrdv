@@ -5,16 +5,31 @@
     ViewData["Title"] = "Patients";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Patients</h1>
+<h1>Patients</h1>
 
-    <ul>
+<p>
+    <a asp-page="AddPatient">Nouveau Patient</a>
+</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach (Patient patient in Model.Patients)
         {
-            <li>@patient.FirstName @patient.LastName</li>
+            <tr>
+                <td>@patient.FirstName</td>
+                <td>@patient.LastName</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="/EditPatient" asp-route-id="@patient.Id">Modifier</a>
+                    <a class="btn btn-danger btn-sm" asp-page="/DeletePatient" asp-route-id="@patient.Id">Supprimer</a>
+                </td>
+            </tr>
         }
-    </ul>
-
-    <a class="nav-link text-dark" asp-area="" asp-page="/AddPatient">Nouveau Patient</a>
-
-</div>
+    </tbody>
+</table>
