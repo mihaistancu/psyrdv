@@ -73,4 +73,32 @@ public class BookingsRepo : IBookingsRepo
 
         using SqlDataReader reader = command.ExecuteReader();
     }
+
+    public Booking GetById(Guid id)
+    {
+        using (var connection = new SqlConnection(connectionString))
+        {
+            var command = new SqlCommand(
+                "SELECT [id], [name], [date], [start], [end], [details] FROM Bookings WHERE id = @id", connection);
+            command.Parameters.AddWithValue("@id", id);
+
+            connection.Open();
+            using (var reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    return new Booking
+                    {
+                        Id = reader.GetGuid(0),
+                        Name = reader.GetString(1),
+                        Date = reader.GetFieldValue<DateOnly>(2),
+                        Start = reader.GetFieldValue<TimeOnly>(3),
+                        End = reader.GetFieldValue<TimeOnly>(4),
+                        Details = reader.GetString(5)
+                    };
+                }
+            }
+        }
+        return null;
+    }
 }
