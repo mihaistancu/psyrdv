@@ -1,0 +1,17 @@
+@page "{id}"
+@using psyrdv.Data
+@model DeleteOfficeModel
+@{
+    ViewData["Title"] = "Supprimer Cabinet";
+}
+
+<div class="alert alert-danger">
+    <h5>Êtes-vous sûr de vouloir supprimer ce cabinet?</h5>
+
+    <form method="post">
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+            <a asp-page="./Offices" class="btn btn-secondary">Non, annuler</a>
+        </div>
+    </form>
+</div>
