@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<IAccessRepo, AccessRepo>();
 builder.Services.AddTransient<IBookingsRepo, BookingsRepo>();
+builder.Services.AddTransient<IPatientsRepo, PatientsRepo>();
 
 var app = builder.Build();
 

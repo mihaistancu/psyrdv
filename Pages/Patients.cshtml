@@ -1,0 +1,20 @@
+@page
+@using psyrdv.Data
+@model PatientsModel
+@{
+    ViewData["Title"] = "Patients";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Patients</h1>
+
+    <ul>
+        @foreach (Patient patient in Model.Patients)
+        {
+            <li>@patient.FirstName @patient.LastName</li>
+        }
+    </ul>
+
+    <a class="nav-link text-dark" asp-area="" asp-page="/AddPatient">Nouveau Patient</a>
+
+</div>

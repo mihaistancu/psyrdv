@@ -25,7 +25,7 @@ public class IndexModel : PageModel
            Accesses = _accessRepo.GetAll();
         }
         catch (Exception ex) {
-            UserId += ex.Message;
+            _logger.LogError(ex.Message);
         }
     }
 }

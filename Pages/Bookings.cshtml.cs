@@ -7,7 +7,6 @@ public class BookingsModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
     private readonly IBookingsRepo _bookingsRepo;
-    public string UserId { get; set; }
 
     public List<Booking> Bookings { get; set; } = new List<Booking>();
     
@@ -18,9 +17,7 @@ public class BookingsModel : PageModel
     }
 
     public void OnGet()
-    {
-        UserId = CurrentUser.From(Request);
-        
+    {        
         try {
            Bookings = _bookingsRepo.getAll();
         }

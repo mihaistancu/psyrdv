@@ -1,0 +1,35 @@
+@page
+@using psyrdv.Data
+@model AddPatientModel
+@{
+    ViewData["Title"] = "Nouveau Patient";
+}
+
+<div class="text-center">
+    
+    <form method="post">
+        <p>
+            <label asp-for="Patient.FirstName">Prenom:</label>
+            <input asp-for="Patient.FirstName" />
+        </p>
+        <p>
+            <label asp-for="Patient.LastName">Nom:</label>
+            <input asp-for="Patient.LastName" />
+        </p>
+        <p>
+            <label asp-for="Patient.Niss">NISS:</label>
+            <input asp-for="Patient.Niss" />
+        </p>
+        <p>
+            <label asp-for="Patient.Phone">Portable</label>
+            <input asp-for="Patient.Phone" />
+        </p>
+        <p>
+            <label asp-for="Patient.Email">Email:</label>
+            <input asp-for="Patient.Email" />
+        </p>
+        
+        <p><button type="submit">Sauvegarde</button></p>
+    </form>
+
+</div>

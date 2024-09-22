@@ -4,20 +4,20 @@ using psyrdv.Data;
 
 namespace psyrdv.Pages;
 
-public class CreateBookingModel : PageModel
+public class AddPatientModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    private readonly IBookingsRepo _bookingsRepo;
+    private readonly IPatientsRepo _patientsRepo;
 
     [BindProperty]
-    public Booking Booking { get; set; }
+    public Patient Patient { get; set; }
     
-    public CreateBookingModel(ILogger<IndexModel> logger, IBookingsRepo bookingsRepo)
+    public AddPatientModel(ILogger<IndexModel> logger, IPatientsRepo patientsRepo)
     {
         _logger = logger;
-        _bookingsRepo = bookingsRepo;
+        _patientsRepo = patientsRepo;
 
-        Booking = new Booking {
+        Patient = new Patient {
             Id = Guid.NewGuid()
         };
     }
@@ -27,6 +27,6 @@ public class CreateBookingModel : PageModel
     }
 
     public void OnPost() {
-        _bookingsRepo.Save(Booking);
+        _patientsRepo.Save(Patient);
     }
 }

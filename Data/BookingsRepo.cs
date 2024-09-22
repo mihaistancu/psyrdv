@@ -17,7 +17,7 @@ public class BookingsRepo : IBookingsRepo
         conn.Open();
 
         var command = new SqlCommand(
-            "DELETE FROM booking WHERE id = @id",
+            "DELETE FROM bookings WHERE id = @id",
             conn);
 
         command.Parameters.Clear();
@@ -28,12 +28,12 @@ public class BookingsRepo : IBookingsRepo
 
     public List<Booking> getAll()
     {
-        var accesses = new List<Booking>();
+        var bookings = new List<Booking>();
         using var conn = new SqlConnection(connectionString);
         conn.Open();
 
         var command = new SqlCommand(
-            "SELECT [id], [name], [date], [start], [end], [details] FROM booking",
+            "SELECT [id], [name], [date], [start], [end], [details] FROM bookings",
             conn);
 
         using (SqlDataReader reader = command.ExecuteReader()) {
@@ -48,10 +48,10 @@ public class BookingsRepo : IBookingsRepo
                     Details = reader.GetString(5)
                 };
 
-                accesses.Add(item);
+                bookings.Add(item);
             }
         }
-        return accesses;
+        return bookings;
     }
 
     public void Save(Booking booking)
@@ -60,7 +60,7 @@ public class BookingsRepo : IBookingsRepo
         conn.Open();
 
         var command = new SqlCommand(
-            "INSERT INTO booking ([id], [name], [date], [start], [end], [details]) VALUES (@id, @name, @date, @start, @end, @details)",
+            "INSERT INTO bookings ([id], [name], [date], [start], [end], [details]) VALUES (@id, @name, @date, @start, @end, @details)",
             conn);
 
         command.Parameters.Clear();
