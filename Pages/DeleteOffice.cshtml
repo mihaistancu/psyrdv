@@ -5,8 +5,19 @@
     ViewData["Title"] = "Supprimer Cabinet";
 }
 
+<h1>Supprimer Cabinet</h1>
+
 <div class="alert alert-danger">
     <h5>Êtes-vous sûr de vouloir supprimer ce cabinet?</h5>
+
+    </hr>
+    <dl class="row">
+        <dt class="col-sm-2">Nom:</dt>
+        <dd class="col-sm-10">@Model.Office.Name</dd>
+
+        <dt class="col-sm-2">Adresse:</dt>
+        <dd class="col-sm-10">@Model.Office.Address</dd>
+    </dl>
 
     <form method="post">
         <div class="form-group">

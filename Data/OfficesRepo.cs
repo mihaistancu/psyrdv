@@ -33,7 +33,7 @@ public class OfficesRepo : IOfficesRepo
         var offices = new List<Office>();
         using (var connection = new SqlConnection(_connectionString))
         {
-            var command = new SqlCommand("SELECT * FROM Offices", connection);
+            var command = new SqlCommand("SELECT id, name, address FROM Offices", connection);
 
             connection.Open();
             using (var reader = command.ExecuteReader())
@@ -62,5 +62,29 @@ public class OfficesRepo : IOfficesRepo
             connection.Open();
             command.ExecuteNonQuery();
         }
+    }
+
+    public Office GetById(Guid id)
+    {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            var command = new SqlCommand("SELECT id, name, address FROM offices WHERE id = @id", connection);
+            command.Parameters.AddWithValue("@Id", id);
+
+            connection.Open();
+            using (var reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    return new Office
+                    {
+                        Id = reader.GetGuid(0),
+                        Name = reader.GetString(1),
+                        Address = reader.GetString(2)
+                    };
+                }
+            }
+        }
+        return null;
     }
 }
