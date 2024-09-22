@@ -5,16 +5,35 @@
     ViewData["Title"] = "RDV";
 }
 
-<div class="text-center">
-    <h1 class="display-4">RDV</h1>
+<h1>RDV</h1>
 
-    <ul>
+<p>
+    <a asp-page="CreateBooking">Nouveau RDV</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Date</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach (Booking booking in Model.Bookings)
         {
-            <li>@booking.Name - @booking.Date @booking.Start - @booking.End</li>
+            <tr>
+                <td>@booking.Name</td>
+                <td>@booking.Date.ToShortDateString()</td>
+                <td>@booking.Start.ToString("HH:mm")</td>
+                <td>@booking.End.ToString("HH:mm")</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="/EditBooking" asp-route-id="@booking.Id">Modifier</a>
+                    <a class="btn btn-danger btn-sm" asp-page="/DeleteBooking" asp-route-id="@booking.Id">Supprimer</a>
+                </td>
+            </tr>
         }
-    </ul>
-
-    <a class="nav-link text-dark" asp-area="" asp-page="/CreateBooking">Nouveau RDV</a>
-
-</div>
+    </tbody>
+</table>
