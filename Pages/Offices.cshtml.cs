@@ -5,11 +5,11 @@ namespace psyrdv.Pages;
 
 public class OfficesModel : PageModel
 {
-    private readonly IOfficeRepo _officeRepo;
+    private readonly IOfficesRepo _officeRepo;
 
-    public OfficesModel(IOfficeRepo officeRepo)
+    public OfficesModel(IOfficesRepo officesRepo)
     {
-        _officeRepo = officeRepo;
+        _officeRepo = officesRepo;
     }
 
     public IEnumerable<Office> Offices { get; set; }

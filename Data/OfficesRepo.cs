@@ -5,11 +5,11 @@ using Microsoft.Data.SqlClient;
 
 namespace psyrdv.Data;
 
-public class OfficeRepo : IOfficeRepo
+public class OfficesRepo : IOfficesRepo
 {
     private readonly string _connectionString;
 
-    public OfficeRepo(IConfiguration configuration)
+    public OfficesRepo(IConfiguration configuration)
     {
         _connectionString = configuration.GetConnectionString("Azure");
     }

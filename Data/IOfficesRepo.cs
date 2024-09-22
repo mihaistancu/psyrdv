@@ -1,6 +1,6 @@
 namespace psyrdv.Data;
 
-public interface IOfficeRepo
+public interface IOfficesRepo
 {
     IEnumerable<Office> GetAll();
     void Save(Office office);

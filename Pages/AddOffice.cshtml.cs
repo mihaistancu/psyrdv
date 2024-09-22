@@ -6,11 +6,11 @@ namespace psyrdv.Pages;
 
 public class AddOfficeModel : PageModel
 {
-    private readonly IOfficeRepo _officeRepo;
+    private readonly IOfficesRepo _officesRepo;
 
-    public AddOfficeModel(IOfficeRepo officeRepo)
+    public AddOfficeModel(IOfficesRepo officesRepo)
     {
-        _officeRepo = officeRepo;
+        _officesRepo = officesRepo;
     }
 
     [BindProperty]
@@ -27,7 +27,7 @@ public class AddOfficeModel : PageModel
             return Page();
         }
 
-        _officeRepo.Save(Office);
+        _officesRepo.Save(Office);
 
         return RedirectToPage("./Offices");
     }
