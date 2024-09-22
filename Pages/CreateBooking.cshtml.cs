@@ -16,10 +16,6 @@ public class CreateBookingModel : PageModel
     {
         _logger = logger;
         _bookingsRepo = bookingsRepo;
-
-        Booking = new Booking {
-            Id = Guid.NewGuid()
-        };
     }
 
     public void OnGet()

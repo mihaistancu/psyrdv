@@ -64,7 +64,7 @@ public class PatientsRepo : IPatientsRepo
             conn);
 
         command.Parameters.Clear();
-        command.Parameters.AddWithValue("@id", patient.Id);
+        command.Parameters.AddWithValue("@id", Guid.NewGuid());
         command.Parameters.AddWithValue("@firstName", patient.FirstName);
         command.Parameters.AddWithValue("@lastName", patient.LastName);
         command.Parameters.AddWithValue("@niss", patient.Niss);

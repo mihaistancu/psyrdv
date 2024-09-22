@@ -16,10 +16,6 @@ public class AddPatientModel : PageModel
     {
         _logger = logger;
         _patientsRepo = patientsRepo;
-
-        Patient = new Patient {
-            Id = Guid.NewGuid()
-        };
     }
 
     public void OnGet()

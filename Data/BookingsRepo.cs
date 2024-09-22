@@ -64,7 +64,7 @@ public class BookingsRepo : IBookingsRepo
             conn);
 
         command.Parameters.Clear();
-        command.Parameters.AddWithValue("@id", booking.Id);
+        command.Parameters.AddWithValue("@id", Guid.NewGuid());
         command.Parameters.AddWithValue("@name", booking.Name);
         command.Parameters.AddWithValue("@date", booking.Date);
         command.Parameters.AddWithValue("@start", booking.Start);

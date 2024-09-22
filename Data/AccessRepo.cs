@@ -30,7 +30,7 @@ public class AccessRepo : IAccessRepo {
         conn.Open();
 
         var command = new SqlCommand(
-            "SELECT userid, accessed FROM access",
+            "SELECT userid, accessed FROM access ORDER BY accessed DESC",
             conn);
 
         using (SqlDataReader reader = command.ExecuteReader()) {
