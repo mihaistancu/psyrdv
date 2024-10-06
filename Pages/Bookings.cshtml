@@ -15,8 +15,8 @@
     <thead>
         <tr>
             <th>Date</th>
-            <th>Début</th>
-            <th>Fin</th>
+            <th>Heure</th>
+            <th>Patient</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -26,7 +26,8 @@
             <tr>
                 <td>@booking.Date.ToShortDateString()</td>
                 <td>@booking.Start.ToString("HH:mm")</td>
-                <td>@booking.End.ToString("HH:mm")</td>
+                
+                <td>@Model.PatientName(booking)</td>
                 <td>
                     <a class="btn btn-primary btn-sm" asp-page="/EditBooking" asp-route-id="@booking.Id">Modifier</a>
                     <a class="btn btn-danger btn-sm" asp-page="/DeleteBooking" asp-route-id="@booking.Id">Supprimer</a>
