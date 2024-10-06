@@ -33,7 +33,7 @@ public class BookingsRepo : IBookingsRepo
         conn.Open();
 
         var command = new SqlCommand(
-            "SELECT [id], [name], [date], [start], [end], [details] FROM bookings",
+            "SELECT [id], [patientId], [date], [start], [end], [details] FROM bookings",
             conn);
 
         using (SqlDataReader reader = command.ExecuteReader()) {
@@ -41,7 +41,7 @@ public class BookingsRepo : IBookingsRepo
                 var item = new Booking
                 {
                     Id = reader.GetGuid(0),
-                    Name = reader.GetString(1),
+                    PatientId = reader.GetGuid(1),
                     Date = reader.GetFieldValue<DateOnly>(2),
                     Start = reader.GetFieldValue<TimeOnly>(3),
                     End = reader.GetFieldValue<TimeOnly>(4),
@@ -60,12 +60,12 @@ public class BookingsRepo : IBookingsRepo
         conn.Open();
 
         var command = new SqlCommand(
-            "INSERT INTO bookings ([id], [name], [date], [start], [end], [details]) VALUES (@id, @name, @date, @start, @end, @details)",
+            "INSERT INTO bookings ([id], [patientId], [date], [start], [end], [details]) VALUES (@id, @patientId, @date, @start, @end, @details)",
             conn);
 
         command.Parameters.Clear();
         command.Parameters.AddWithValue("@id", Guid.NewGuid());
-        command.Parameters.AddWithValue("@name", booking.Name);
+        command.Parameters.AddWithValue("@patientId", booking.PatientId);
         command.Parameters.AddWithValue("@date", booking.Date);
         command.Parameters.AddWithValue("@start", booking.Start);
         command.Parameters.AddWithValue("@end", booking.End);
@@ -79,7 +79,7 @@ public class BookingsRepo : IBookingsRepo
         using (var connection = new SqlConnection(connectionString))
         {
             var command = new SqlCommand(
-                "SELECT [id], [name], [date], [start], [end], [details] FROM Bookings WHERE id = @id", connection);
+                "SELECT [id], [patientId], [date], [start], [end], [details] FROM Bookings WHERE id = @id", connection);
             command.Parameters.AddWithValue("@id", id);
 
             connection.Open();
@@ -90,7 +90,7 @@ public class BookingsRepo : IBookingsRepo
                     return new Booking
                     {
                         Id = reader.GetGuid(0),
-                        Name = reader.GetString(1),
+                        PatientId = reader.GetGuid(1),
                         Date = reader.GetFieldValue<DateOnly>(2),
                         Start = reader.GetFieldValue<TimeOnly>(3),
                         End = reader.GetFieldValue<TimeOnly>(4),

@@ -14,7 +14,6 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Nom</th>
             <th>Date</th>
             <th>Début</th>
             <th>Fin</th>
@@ -25,7 +24,6 @@
         @foreach (Booking booking in Model.Bookings)
         {
             <tr>
-                <td>@booking.Name</td>
                 <td>@booking.Date.ToShortDateString()</td>
                 <td>@booking.Start.ToString("HH:mm")</td>
                 <td>@booking.End.ToString("HH:mm")</td>

@@ -10,8 +10,14 @@
     
     <form method="post" class="mx-auto" style="max-width: 500px;">
         <div class="mb-3">
-            <label asp-for="Booking.Name" class="form-label">Nom</label>
-            <input asp-for="Booking.Name" class="form-control" />
+            <label asp-for="Booking.PatientId" class="form-label">Patient</label>
+            <input list="patientList" asp-for="Booking.PatientId" class="form-control" />
+            <datalist id="patientList">
+                @foreach (var patient in Model.Patients)
+                {
+                    <option value="@patient.Id">@patient.FirstName @patient.LastName</option>
+                }
+            </datalist>
         </div>
         <div class="mb-3">
             <label asp-for="Booking.Date" class="form-label">Date</label>
@@ -36,3 +42,26 @@
         </div>
     </form>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var input = document.querySelector('input[list]');
+            var datalist = document.getElementById('patientList');
+            
+            input.addEventListener('input', function() {
+                var text = this.value.toLowerCase();
+                var options = datalist.options;
+                for (var i = 0; i < options.length; i++) {
+                    var option = options[i];
+                    var optionText = option.text.toLowerCase();
+                    if (optionText.indexOf(text) !== -1) {
+                        option.style.display = '';
+                    } else {
+                        option.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+}
