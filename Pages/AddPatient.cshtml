@@ -5,31 +5,34 @@
     ViewData["Title"] = "Nouveau Patient";
 }
 
-<div class="text-center">
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">@ViewData["Title"]</h2>
     
-    <form method="post">
-        <p>
-            <label asp-for="Patient.FirstName">Prenom:</label>
-            <input asp-for="Patient.FirstName" />
-        </p>
-        <p>
-            <label asp-for="Patient.LastName">Nom:</label>
-            <input asp-for="Patient.LastName" />
-        </p>
-        <p>
-            <label asp-for="Patient.Niss">NISS:</label>
-            <input asp-for="Patient.Niss" />
-        </p>
-        <p>
-            <label asp-for="Patient.Phone">Portable</label>
-            <input asp-for="Patient.Phone" />
-        </p>
-        <p>
-            <label asp-for="Patient.Email">Email:</label>
-            <input asp-for="Patient.Email" />
-        </p>
+    <form method="post" class="mx-auto" style="max-width: 500px;">
+        <div class="mb-3">
+            <label asp-for="Patient.FirstName" class="form-label">Prénom</label>
+            <input asp-for="Patient.FirstName" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Patient.LastName" class="form-label">Nom</label>
+            <input asp-for="Patient.LastName" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Patient.Niss" class="form-label">NISS</label>
+            <input asp-for="Patient.Niss" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Patient.Phone" class="form-label">Portable</label>
+            <input asp-for="Patient.Phone" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Patient.Email" class="form-label">Email</label>
+            <input asp-for="Patient.Email" class="form-control" type="email" />
+        </div>
         
-        <p><button type="submit">Sauvegarde</button></p>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            <a asp-page="./Patients" class="btn btn-secondary">Annuler</a>
+        </div>
     </form>
-
 </div>

@@ -4,18 +4,22 @@
     ViewData["Title"] = "Nouveau Cabinet";
 }
 
-<h1>Nouveau Cabinet</h1>
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">@ViewData["Title"]</h2>
 
-<form method="post">
-    <div class="form-group">
-        <label asp-for="Office.Name"></label>
-        <input asp-for="Office.Name" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Office.Address"></label>
-        <input asp-for="Office.Address" class="form-control" />
-    </div>
-   
-    <button type="submit" class="btn btn-primary mt-3">Sauvegarde</button>
-    <a asp-page="./Offices" class="btn btn-secondary mt-3">Annuler</a>
-</form>
+    <form method="post" class="mx-auto" style="max-width: 500px;">
+        <div class="mb-3">
+            <label asp-for="Office.Name" class="form-label">Nom</label>
+            <input asp-for="Office.Name" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Office.Address" class="form-label">Adresse</label>
+            <input asp-for="Office.Address" class="form-control" />
+        </div>
+        
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Sauvegarde</button>
+            <a asp-page="./Offices" class="btn btn-secondary">Annuler</a>
+        </div>
+    </form>
+</div>
