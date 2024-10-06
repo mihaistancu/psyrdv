@@ -19,18 +19,34 @@
                 }
             </select>
         </div>
+        
         <div class="mb-3">
             <label asp-for="Booking.Date" class="form-label">Date</label>
             <input asp-for="Booking.Date" class="form-control" type="date" />
         </div>
-        <div class="mb-3">
-            <label asp-for="Booking.Start" class="form-label">De</label>
-            <input asp-for="Booking.Start" class="form-control" type="time" />
+        
+        <div class="mb-3 row">
+            <div class="col-6">
+                <label asp-for="Booking.Start" class="form-label">De</label>
+                <input asp-for="Booking.Start" class="form-control" type="time" />
+            </div>
+            <div class="col-6">
+                <label asp-for="Booking.End" class="form-label">À</label>
+                <input asp-for="Booking.End" class="form-control" type="time" />
+            </div>
         </div>
+
         <div class="mb-3">
-            <label asp-for="Booking.End" class="form-label">A</label>
-            <input asp-for="Booking.End" class="form-control" type="time" />
+            <label asp-for="Booking.OfficeId" class="form-label">Bureau</label>
+            <select asp-for="Booking.OfficeId" class="form-select">
+                <option value="">Sélectionnez un cabinet</option>
+                @foreach (var office in Model.Offices)
+                {
+                    <option value="@office.Id">@office.Name</option>
+                }
+            </select>
         </div>
+        
         <div class="mb-3">
             <label asp-for="Booking.Details" class="form-label">Détails</label>
             <textarea asp-for="Booking.Details" class="form-control" rows="3"></textarea>

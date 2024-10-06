@@ -28,7 +28,7 @@ public class OfficesRepo : IOfficesRepo
         }
     }
 
-    public IEnumerable<Office> GetAll()
+    public List<Office> GetAll()
     {
         var offices = new List<Office>();
         using (var connection = new SqlConnection(_connectionString))
