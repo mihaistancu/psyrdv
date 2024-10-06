@@ -29,7 +29,7 @@
                 
                 <td>@Model.PatientName(booking)</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" asp-page="/EditBooking" asp-route-id="@booking.Id">Modifier</a>
+                    <a class="btn btn-secondary btn-sm disabled" asp-page="/EditBooking" asp-route-id="@booking.Id" aria-disabled="true" tabindex="-1">Modifier</a>
                     <a class="btn btn-danger btn-sm" asp-page="/DeleteBooking" asp-route-id="@booking.Id">Supprimer</a>
                 </td>
             </tr>

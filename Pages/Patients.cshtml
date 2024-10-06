@@ -26,7 +26,7 @@
                 <td>@patient.FirstName</td>
                 <td>@patient.LastName</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" asp-page="/EditPatient" asp-route-id="@patient.Id">Modifier</a>
+                    <a class="btn btn-secondary btn-sm disabled" asp-page="/EditPatient" asp-route-id="@patient.Id" aria-disabled="true" tabindex="-1">Modifier</a>
                     <a class="btn btn-danger btn-sm" asp-page="/DeletePatient" asp-route-id="@patient.Id">Supprimer</a>
                 </td>
             </tr>

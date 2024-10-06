@@ -25,7 +25,7 @@
                 <td>@office.Name</td>
                 <td>@office.Address</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" asp-page="./EditOffice" asp-route-id="@office.Id">Modifier</a>
+                    <a class="btn btn-secondary btn-sm disabled" asp-page="./EditOffice" asp-route-id="@office.Id" aria-disabled="true" tabindex="-1">Modifier</a>
                     <a class="btn btn-danger btn-sm" asp-page="./DeleteOffice" asp-route-id="@office.Id">Suprimer</a>
                 </td>
             </tr>
